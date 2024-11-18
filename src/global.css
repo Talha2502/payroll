@@ -3,4 +3,6 @@
     flex-direction: column;
     height: 90vh;
     overflow-y: auto;
-  }
+    align-items: center;      /* Add this */
+    justify-content: center;  /* Add this */
+}
