@@ -1,0 +1,1 @@
+export type TinputvariantType = 'outline' | 'subtle' | 'flushed';

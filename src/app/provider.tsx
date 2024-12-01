@@ -1,11 +1,16 @@
+// Provider.tsx
 'use client';
 
-import { ClerkProvider } from '@clerk/nextjs';
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
+import { ThemeProvider, type ThemeProviderProps } from "next-themes";
+import React from "react";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+
+export function Provider(props: ThemeProviderProps) {
   return (
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-      {children}
-    </ClerkProvider>
+    <ChakraProvider value={defaultSystem}>
+      <ThemeProvider {...props}>
+      </ThemeProvider>
+    </ChakraProvider>
   );
 }

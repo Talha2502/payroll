@@ -1,8 +1,9 @@
 import { IGlobalComponentProps } from "./global.interface";
+import { BoxProps } from "@chakra-ui/react";
 
-export interface ICardProps extends IGlobalComponentProps{
-    header?: React.ReactNode;
-    title?: string;
-    content?: React.ReactNode;
-    className?: string;
-  }
+export interface ICardProps extends BoxProps  {
+  title?: string;
+  children: React.ReactNode;
+  width?: string;
+  padding?: string;
+}
