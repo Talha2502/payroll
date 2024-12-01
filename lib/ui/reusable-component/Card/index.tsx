@@ -1,31 +1,39 @@
-'use client';
+import React from 'react';
+import { 
+  Box, 
+  Heading, 
+} from '@chakra-ui/react';
 import { ICardProps } from '../../../utils/interfaces';
 
-export default function SignUpCard({ 
-    header, 
-    title, 
-    content, 
-    className 
-  }: ICardProps) {
-    return (
-      <div className="w-full max-w-md shadow-lg rounded-lg border bg-white">
-        {header && (
-          <div className="px-6 py-4 border-b">
-            {header}
-          </div>
-        )}
-        
-        {title && (
-          <h2 className="text-2xl font-bold text-gray-800 text-center py-4">
-            {title}
-          </h2>
-        )}
-        
-        {content && (
-          <div className="p-6">
-            {content}
-          </div>
-        )}
-      </div>
-    );
-  }
+const Card: React.FC<ICardProps> = ({
+  title,
+  children,
+  width = 'full',
+  padding = '6',
+  ...rest
+}) => {
+  return (
+    <Box 
+      width={width}
+      padding={padding}
+      borderWidth="1px"
+      borderRadius="lg"
+      boxShadow="md"
+      bg="white"
+      {...rest}
+    >
+      {title && (
+        <Heading 
+          mb={4} 
+          textAlign="center" 
+          size="md"
+        >
+          {title}
+        </Heading>
+      )}
+      {children}
+    </Box>
+  );
+};
+
+export default Card;
